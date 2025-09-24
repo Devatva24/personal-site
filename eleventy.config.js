@@ -9,13 +9,13 @@ export default function (eleventyConfig) {
   // ----------------------------
   // Markdown-it configuration
   // ----------------------------
-  let options = {
+  const mdOptions = {
     html: true,
     breaks: true,
     linkify: true
   };
 
-  const mdLib = markdownIt(options)
+  const mdLib = markdownIt(mdOptions)
     .use(markdownItAttrs)
     .use(markdownItAnchor, {
       permalink: markdownItAnchor.permalink.ariaHidden({
@@ -33,35 +33,30 @@ export default function (eleventyConfig) {
   // ----------------------------
   eleventyConfig.addPlugin(sitemap, {
     sitemap: {
-      // Update this to your GitHub Pages or custom domain
-      hostname: "https://devatva24.github.io/personal-site/",
+      hostname: "https://devatva24.github.io/personal-site/", // GitHub Pages URL
     },
   });
 
   // ----------------------------
   // Filters & Shortcodes
   // ----------------------------
-  // Current year filter
   eleventyConfig.addFilter("year", () => new Date().getFullYear());
-
-  // Filter project tags to exclude "project" tag
-  eleventyConfig.addFilter("filterTags", (tags) => {
-    return tags.filter(tag => tag !== "project").sort();
-  });
-
-  // Shortcode for current year (for footer)
+  eleventyConfig.addFilter("filterTags", (tags) => tags.filter(tag => tag !== "project").sort());
   eleventyConfig.addShortcode("currentYear", () => `${new Date().getFullYear()}`);
 
   // ----------------------------
   // Passthrough copy
   // ----------------------------
-  eleventyConfig.addPassthroughCopy("assets"); // PDFs, images, etc.
-  eleventyConfig.addPassthroughCopy("projects/**/images"); // project images
-  eleventyConfig.addPassthroughCopy("CNAME"); // custom domain
-  eleventyConfig.addPassthroughCopy("robots.txt"); // SEO
+  eleventyConfig.addPassthroughCopy("assets"); 
+  eleventyConfig.addPassthroughCopy("projects/**/images");
+  eleventyConfig.addPassthroughCopy("CNAME"); 
+  eleventyConfig.addPassthroughCopy("robots.txt");
 
   // ----------------------------
   // Syntax highlighting
   // ----------------------------
   eleventyConfig.addPlugin(syntaxHighlight);
+
+  // Optional: Watch for changes in projects/images folder
+  eleventyConfig.addWatchTarget("projects/**/images");
 }

@@ -1,66 +1,66 @@
 {% extends "layouts/index.njk" %}
 {% block content %}
 <section class="header">
-    <h1>Devatva Rachit</h1>
+    {% include "components/ascii-title.njk" %}
     <p>
-        <i>Aspiring Data Scientist & ML Researcher | Backend Developer | SpringBoot | Java</i>
+        <i>Building intelligent software solutions with Java, Spring Boot, and AI/ML 🚀 — turning ideas into impactful applications.</i>
     </p>
 </section>
-
 <section id="projects">
     <h2>Projects</h2>
-    <p>
-        Here are some of the projects I’ve worked on, focusing on Machine Learning, Data Science, and Software
-        Development.
-    </p>
+    Projects here are written in a blog-style, sharing my personal experience, while GitHub documentation focuses on technical details and implementation.
 
-    <table id="project-table" aria-label="List of projects">
+    <br>
+    <br>
+
+    <table id="project-table">
         <thead>
             <tr>
                 <th>Name</th>
                 <th class="tags-col">Tags</th>
-                <th>Description</th>
+                <th>Decription</th>
             </tr>
         </thead>
         <tbody>
             {% for project in collections.project | sort(attribute='data.year') | reverse %}
-            {% set filtered_tags = project.data.tags | reject("equalto", "project") | sort %}
             <tr>
                 <td class="name-col">
                     <div class="name-and-year">
-                        <a href="{{ project.url }}" target="_blank" rel="noopener noreferrer">{{ project.data.title }}</a>
-                        <span class="project-year">{{ project.data.date_display or project.data.year }}</span>
+                        <a href="{{ project.url }}">{{ project.data.title }}</a>
+                        <span class="project-year">{{ project.data.date_display }}</span>
                     </div>
+
+                    {# duplicate tags for mobile only #}
                     <div class="tags-mobile">
-                        {% for tag in filtered_tags %}
-                        <span class="tag {{ tag }}">{{ tag }}</span>
+                        {% for tag in project.data.tags | sort %}
+                        {% if tag != "project" %}
+                        <span class="tag {{tag}}">{{ tag }}</span>
+                        {% endif %}
                         {% endfor %}
                     </div>
                 </td>
+
                 <td class="tags-col">
-                    {% for tag in filtered_tags %}
-                    <span class="tag {{ tag }}">{{ tag }}</span>
+                    {% for tag in project.data.tags | sort %}
+                    {% if tag != "project" %}
+                    <span class="tag {{tag}}">{{ tag }}</span>
+                    {% endif %}
                     {% endfor %}
                 </td>
-                <td>{{ project.data.description | safe }}</td>
+
+                <td>{{ project.data.description }}</td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
 </section>
-
 <section id="links">
     <h2>Links</h2>
     <ul>
-        <li class="linkedin">
-            <a href="https://linkedin.com/in/devatva-rachit-317a11229" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        </li>
-        <li class="github">
-            <a href="https://github.com/Devatva24" target="_blank" rel="noopener noreferrer">GitHub</a>
-        </li>
-        <li class="email">
-            <a href="mailto:rachitdevatva722448@gmail.com">Email</a>
-        </li>
+        <li class="linkedin"><a href="https://linkedin.com/in/devatva-rachit-317a11229">Linkedin</a></li>
+        <li class="github"><a href="https://github.com/Devatva24">Github</a></li>
+        <li class="gfg"><a href="https://www.geeksforgeeks.org/user/rachitdevamt7l/">GeeksForGeeks</a></li>
+        <li class="stackoverflow"><a href="https://medium.com/@rachitdevatva722448">Medium</a></li>
     </ul>
 </section>
 {% endblock %}
