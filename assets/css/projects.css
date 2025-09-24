@@ -85,3 +85,109 @@ p.katex-block {
     max-width: 100%;
     overflow-x: auto;
 }
+
+/* ------------------ Education Section ------------------ */
+
+#education {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+#education h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+#education p {
+    font-style: italic;
+    color: var(--color-primary-text-faded-3);
+    margin-bottom: 1rem;
+}
+
+#education-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+#education-table th,
+#education-table td {
+    border: 1px solid var(--color-primary-background-faded-2);
+    padding: 0.75rem;
+    text-align: left;
+}
+
+#education-table th {
+    background-color: var(--color-primary-background-faded-2);
+    font-weight: bold;
+}
+
+#education-table tr:nth-child(even) {
+    background-color: var(--color-primary-background-faded-1);
+}
+
+#education-table tr:hover {
+    background-color: var(--color-primary-background-faded-3);
+}
+
+/* ------------------ Skills Section ------------------ */
+#skills {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+#skills h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+#skills p {
+    font-style: italic;
+    color: var(--color-primary-text-faded-3);
+    margin-bottom: 1rem;
+}
+
+.skills-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.skill-badge {
+    display: inline-block;
+    background-color: var(--color-primary-background-faded-2);
+    padding: 0.3rem 0.6rem;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-primary-text-faded-2);
+    transition: transform 0.3s, background-color 0.3s;
+    cursor: default;
+}
+
+.skill-badge:hover {
+    background-color: var(--color-primary-text-faded-1);
+    transform: scale(1.1);
+}
+
+.skill-bar {
+    width: 100%;
+    height: 8px;
+    background-color: var(--color-primary-background-faded-1);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.skill-level {
+    height: 100%;
+    width: 0;
+    background-color: var(--color-primary-text-faded-2);
+    border-radius: 5px;
+    transition: width 1s ease-in-out;
+}

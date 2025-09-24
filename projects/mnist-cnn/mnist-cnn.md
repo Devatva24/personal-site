@@ -17,16 +17,18 @@ Tested multiple architectures (Dense Neural Networks, Convolutional Neural Netwo
 
 ## Techniques Used
 
-- Data normalization and reshaping
-- Convolutional Neural Network (CNN) architecture with pooling layers
-- Model evaluation using accuracy and confusion matrix
-- Visualization of training history (loss & accuracy curves)
+- 🏗️ Clean CNN architecture with convolutional, pooling, and fully connected layers.
+- 📊 Data preprocessing: Normalized and reshaped images for efficient training.
+- 🤖 Model evaluation: Monitored accuracy, confusion matrix, and training/validation curves.
+- ⚡ High performance: Achieved over 96.8% test accuracy with fast training and inference.
+- ✅ Reliable predictions: Correctly classified most handwritten digits with high confidence.
 
 ## Results
 
-- Achieved over 96.80% test accuracy with a simple neural network
-- Fast training and inference time
-- Correctly classified most handwritten digits with high confidence
+- 🎯 Achieved over 96.8% test accuracy with the CNN model.
+- ⚡ Fast training and inference, enabling efficient experimentation.
+- ✅ High-confidence predictions for most handwritten digits.
+- 🌟 Demonstrated robust generalization across unseen test images.
 
 ## Links
 

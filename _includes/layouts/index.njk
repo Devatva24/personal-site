@@ -3,15 +3,43 @@
 
 <head>
     {% include "../components/head.njk" %}
+    
+    <!-- Core CSS -->
     <link rel="stylesheet" href="/assets/css/index.css">
     <link rel="stylesheet" href="/assets/css/ascii-title.css">
+
+    <!-- Section CSS -->
+    <link rel="stylesheet" href="/assets/css/projects.css">
+    <link rel="stylesheet" href="/assets/css/education.css">
+    <link rel="stylesheet" href="/assets/css/skills.css">
+    <link rel="stylesheet" href="/assets/css/links.css">
 </head>
 
 <body>
     <main>
         {% block content %}{% endblock %}
     </main>
+
     {% include "../components/footer.njk" %}
+
+    <!-- ------------------ JS for Interactive Skills ------------------ -->
+    <script>
+    function animateSkills() {
+        const skills = document.querySelectorAll(".skill-level");
+        skills.forEach(skill => {
+            const rect = skill.getBoundingClientRect();
+            const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+            if (rect.top < windowHeight && rect.bottom > 0 && !skill.classList.contains("animated")) {
+                skill.style.width = skill.getAttribute("data-level");
+                skill.classList.add("animated");
+            }
+        });
+    }
+
+    // Trigger on page load and scroll
+    window.addEventListener("load", animateSkills);
+    window.addEventListener("scroll", animateSkills);
+    </script>
 </body>
 
 </html>

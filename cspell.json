@@ -17,6 +17,10 @@
     "ReLU",
     "Dropout",
     "Adam",
-    "SGD"
+    "SGD",
+    "FOODOO",
+    "foodoo",
+    "dialogflow",
+    "FooDoo"
   ]
 }
