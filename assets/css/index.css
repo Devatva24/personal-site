@@ -31,10 +31,14 @@ li.github::before {
     background-image: url("/assets/images/icons/github.svg");
 }
 
-li.algo::before {
-    background-image: url("/assets/images/icons/algowhite.svg");
+li.gfg::before {
+    background-image: url("/assets/images/icons/geeksforgeeks.svg");
 }
 
-li.stackoverflow::before {
-    background-image: url("/assets/images/icons/stackoverflow.svg");
+li.medium::before {
+    background-image: url("/assets/images/icons/medium.svg");
+}
+
+li.leetcode::before {
+    background-image: url("/assets/images/icons/leetcode.svg");
 }
