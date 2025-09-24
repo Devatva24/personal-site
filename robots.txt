@@ -1,4 +1,6 @@
+# Allow all user agents
 User-agent: *
-Disallow: 
 Disallow: /cgi-bin/
-Sitemap: https://mcloughlan.com/sitemap.xml
+
+# Sitemap location
+Sitemap: https://devatvarachit.github.io/personal-site/sitemap.xml
