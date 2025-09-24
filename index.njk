@@ -1,79 +1,66 @@
 {% extends "layouts/index.njk" %}
 {% block content %}
 <section class="header">
-    {% include "components/ascii-title.njk" %}
+    <h1>Devatva Rachit</h1>
     <p>
-        <i>I do lots of software and electronics and I also work with high powered lawn darts 🚀</i>
+        <i>Computer Science & Engineering Student at KIIT (Graduating 2026) | Aspiring Data Scientist & ML Researcher</i>
     </p>
 </section>
+
 <section id="projects">
     <h2>Projects</h2>
-    Projects on this website are written in a blog format, focusing on the project from my perspective. The Github
-    documentation (if attached) is more technical and documentational than this.
+    <p>
+        Here are some of the projects I’ve worked on, focusing on Machine Learning, Data Science, and Software
+        Development.
+    </p>
 
-    <br>
-    <br>
-
-    <span
-        style="opacity: 1; background-color: rgba(200, 142, 25, 0.262);padding: 1rem;border-radius: 10px;border: thin solid rgb(136, 88, 0);">
-        <strong>
-            Just note that this will look empty for a while. This is all new and I'm in the process of writing it all
-            up!
-        </strong>
-        <br>
-        I have like 10 projects to put on here but I've just done 1 for initial setup. I will delete this when it is up
-        to date
-    </span>
-
-    <table id="project-table">
+    <table id="project-table" aria-label="List of projects">
         <thead>
             <tr>
                 <th>Name</th>
                 <th class="tags-col">Tags</th>
-                <th>Decription</th>
+                <th>Description</th>
             </tr>
         </thead>
         <tbody>
             {% for project in collections.project | sort(attribute='data.year') | reverse %}
+            {% set filtered_tags = project.data.tags | reject("equalto", "project") | sort %}
             <tr>
                 <td class="name-col">
                     <div class="name-and-year">
-                        <a href="{{ project.url }}">{{ project.data.title }}</a>
-                        <span class="project-year">{{ project.data.date_display }}</span>
+                        <a href="{{ project.url }}" target="_blank" rel="noopener noreferrer">{{ project.data.title }}</a>
+                        <span class="project-year">{{ project.data.date_display or project.data.year }}</span>
                     </div>
-
-                    {# duplicate tags for mobile only #}
                     <div class="tags-mobile">
-                        {% for tag in project.data.tags | sort %}
-                        {% if tag != "project" %}
-                        <span class="tag {{tag}}">{{ tag }}</span>
-                        {% endif %}
+                        {% for tag in filtered_tags %}
+                        <span class="tag {{ tag }}">{{ tag }}</span>
                         {% endfor %}
                     </div>
                 </td>
-
                 <td class="tags-col">
-                    {% for tag in project.data.tags | sort %}
-                    {% if tag != "project" %}
-                    <span class="tag {{tag}}">{{ tag }}</span>
-                    {% endif %}
+                    {% for tag in filtered_tags %}
+                    <span class="tag {{ tag }}">{{ tag }}</span>
                     {% endfor %}
                 </td>
-
-                <td>{{ project.data.description }}</td>
+                <td>{{ project.data.description | safe }}</td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
 </section>
+
 <section id="links">
     <h2>Links</h2>
     <ul>
-        <li class="linkedin"><a href="https://www.linkedin.com/in/freddy-mcloughlan/">Linkedin</a></li>
-        <li class="github"><a href="https://github.com/mcloughlan">Github</a></li>
-        <li class="algo"><a href="https://algo.mcloughlan.com/">Algo Notes</a></li>
-        <li class="stackoverflow"><a href="https://stackoverflow.com/users/14141223/freddy-mcloughlan">Stack
-                Overflow</a></li>
+        <li class="linkedin">
+            <a href="https://www.linkedin.com/in/devatva-rachit/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </li>
+        <li class="github">
+            <a href="https://github.com/devatvarachit" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </li>
+        <li class="email">
+            <a href="mailto:rachitdevatva722448@gmail.com">Email</a>
+        </li>
     </ul>
 </section>
 {% endblock %}

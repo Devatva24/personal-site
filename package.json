@@ -2,30 +2,30 @@
   "name": "personal_site",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Just running md linters and spelling checkers for now\" && npm run check:md",
-    "build-ghpages": "npx @11ty/eleventy --pathprefix=/personal-site/",
-    "build": "npx @11ty/eleventy",
-    "prepare": "husky",
-    "lint:md": "markdownlint './projects/**/*.md'",
-    "spell:md": "cspell './projects/**/*.md'",
-    "check:md": "npm run spell:md && npm run lint:md"
-  },
+  "type": "module",
+  "description": "Personal portfolio of Devatva Rachit showcasing projects in Machine Learning, Data Science, and Software Development.",
+  "author": "Devatva Rachit",
+  "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mcloughlan/personal-site.git"
+    "url": "git+https://github.com/devatvarachit/personal-site.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mcloughlan/personal-site/issues"
+    "url": "https://github.com/devatvarachit/personal-site/issues"
   },
-  "homepage": "https://github.com/mcloughlan/personal-site#readme",
-  "description": "",
-  "type": "module",
+  "homepage": "https://github.com/devatvarachit/personal-site#readme",
+  "scripts": {
+    "start": "npx @11ty/eleventy --serve",
+    "dev": "npx @11ty/eleventy --serve",
+    "build": "npx @11ty/eleventy",
+    "build-ghpages": "npx @11ty/eleventy --pathprefix=/personal-site/",
+    "prepare": "husky",
+    "lint:md": "npx markdownlint-cli \"projects/**/*.md\"",
+    "spell:md": "npx cspell --config cspell.json \"projects/**/*.md\"",
+    "check:md": "npm run spell:md && npm run lint:md",
+    "test": "echo \"Running markdown linters and spellcheck\" && npm run check:md"
+  },
   "dependencies": {
-    "@11ty/eleventy": "^3.1.2",
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2",
     "@iktakahiro/markdown-it-katex": "^4.0.1",
     "@quasibit/eleventy-plugin-sitemap": "^2.2.0",
@@ -34,7 +34,9 @@
     "markdown-it-attrs": "^4.3.1"
   },
   "devDependencies": {
+    "@11ty/eleventy": "^3.1.2",
     "@cspell/dict-en-au": "^1.1.5",
-    "husky": "^9.1.7"
+    "husky": "^9.1.7",
+    "markdownlint-cli": "^0.45.0"
   }
 }

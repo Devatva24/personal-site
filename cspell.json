@@ -1,0 +1,22 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "words": [
+    "Scikit",
+    "MNIST",
+    "Convolutional",
+    "Keras",
+    "Conv",
+    "TensorFlow",
+    "NumPy",
+    "Pandas",
+    "Matplotlib",
+    "Seaborn",
+    "OpenCV",
+    "Autoencoder",
+    "ReLU",
+    "Dropout",
+    "Adam",
+    "SGD"
+  ]
+}
